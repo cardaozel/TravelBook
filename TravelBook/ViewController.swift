@@ -13,7 +13,7 @@ import CoreLocation
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
-    var locationManager: CLLocationManager!
+    var locationManager = CLLocationManager()
     
     
     override func viewDidLoad() {
@@ -25,7 +25,25 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
+        let gestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(chooseGestureRecognizer(_:)))
+        gestureRecognizer.minimumPressDuration = 3
+        mapView.addGestureRecognizer(gestureRecognizer)
         
+        
+    }
+    
+    @objc  func chooseGestureRecognizer(_ gestureRecognizer: UILongPressGestureRecognizer) {
+        
+        if gestureRecognizer.state == .began {
+            let touchPoint = gestureRecognizer.location(in: self.mapView)
+            let touchedCoordinate = self.mapView.convert(touchPoint, toCoordinateFrom: self.mapView)
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = touchedCoordinate
+            annotation.title = "New Place"
+            annotation.subtitle = "Travel book"
+            self.mapView.addAnnotation(annotation)
+            
+        }
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
