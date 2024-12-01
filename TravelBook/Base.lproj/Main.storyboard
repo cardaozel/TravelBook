@@ -18,21 +18,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V62-7w-APZ">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="212" width="393" height="606"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6s0-hT-AB7">
+                                <rect key="frame" x="52" y="97" width="284" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="comment" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="21Z-hT-BEO">
+                                <rect key="frame" x="52" y="149" width="284" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="V62-7w-APZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Baj-kC-M8C"/>
-                            <constraint firstItem="V62-7w-APZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="VuI-nN-jxF"/>
+                            <constraint firstItem="V62-7w-APZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="153" id="VuI-nN-jxF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="V62-7w-APZ" secondAttribute="trailing" id="Wqb-gj-Nnq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="V62-7w-APZ" secondAttribute="bottom" id="b1O-qe-EHL"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="commentText" destination="8bC-Xf-vdC" id="aOo-gd-LCY"/>
                         <outlet property="mapView" destination="V62-7w-APZ" id="S0w-TL-evJ"/>
+                        <outlet property="nameText" destination="6s0-hT-AB7" id="ApP-4D-c2O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
